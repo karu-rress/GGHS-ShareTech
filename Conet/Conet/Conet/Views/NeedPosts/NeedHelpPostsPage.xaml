@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Conet.ViewModels"
+             xmlns:local="clr-namespace:Conet.ViewModels"  
+             xmlns:model="clr-namespace:Conet.Models"  
+             x:Class="Conet.Views.NeedHelpPostsPage"
+             Title="이런 도움이 필요해요!">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="작성" Command="{Binding WritePostsCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <RefreshView x:DataType="local:NeedHelpPostsVM" Command="{Binding LoadPostsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView Margin="15" x:Name="ItemCollectionView"
+                        ItemsSource="{Binding Posts}"
+                        ItemsLayout="VerticalGrid, 3"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5" x:DataType="model:NeedHelpPost">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*" />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:NeedHelpPostsVM}}, Path=PostTapped}"
+                                CommandParameter="{Binding .}"/>
+                        </Grid.GestureRecognizers>
+                        <Rectangle Background="black" Grid.Row="0" />
+                        <Label Text="{Binding Title}" Grid.Row="1"/>
+                        <Label Text="{Binding Description}" Grid.Row="2" FontSize="Caption"/>
+                        <Label Text="{Binding Egg}" Grid.Row="3" FontSize="Caption"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

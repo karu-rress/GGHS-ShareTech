@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Conet.Views.HomePage"
+            Title="Conet"
+            xmlns:imgcrop="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.ImageCropView"
+             >
+   
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Padding="15">
+            <Label Text="이런 도움을 줄 수 있어요!" FontSize="Title"
+                VerticalOptions="Start" 
+                HorizontalOptions="Start" />
+                <ScrollView HeightRequest="200" Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal">
+                        <imgcrop:ImageCropView Source="https://slownews.kr/wp-content/uploads/2017/12/writing-828911_640.jpg" HeightRequest="170" WidthRequest="190"/>
+                        <imgcrop:ImageCropView Source="https://newsimg-hams.hankookilbo.com/2021/11/04/17188423-4eef-4e85-8a37-a23bf35519d9.jpg" HeightRequest="170" WidthRequest="190"/>
+                        <Rectangle BackgroundColor="#acaed0" HeightRequest="170" WidthRequest="190"></Rectangle>
+                        <Rectangle BackgroundColor="#acaed0" HeightRequest="170" WidthRequest="190"></Rectangle>
+                        <Rectangle BackgroundColor="#acaed0" HeightRequest="170" WidthRequest="190"></Rectangle>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                            Tapped="TapGestureRecognizer_Tapped"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </ScrollView>
+            
+            
+                <Label Margin="0, 15, 0, 0" Text="이런 도움이 필요해요!" FontSize="Title"
+                VerticalOptions="Start" 
+                HorizontalOptions="Start" />
+                <ScrollView HeightRequest="200" Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal">
+                        <Rectangle BackgroundColor="#acaed0" HeightRequest="170" WidthRequest="190"></Rectangle>
+                        <Rectangle BackgroundColor="#acaed0" HeightRequest="170" WidthRequest="190"></Rectangle>
+                        <Rectangle BackgroundColor="#acaed0" HeightRequest="170" WidthRequest="190"></Rectangle>
+                        <Rectangle BackgroundColor="#acaed0" HeightRequest="170" WidthRequest="190"></Rectangle>
+                        <Rectangle BackgroundColor="#acaed0" HeightRequest="170" WidthRequest="190"></Rectangle>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                            Tapped="TapGestureRecognizer_Tapped_1"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+        
+        
+</ContentPage>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Conet.Views.MyPage"
+             xmlns:local="clr-namespace:Conet.ViewModels"
+             Title="마이페이지">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="수정" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    
+    <ContentPage.Content>
+        
+        <StackLayout Margin="20">
+            <Grid Margin="0, 0, 0, 30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="1" Text="회원정보" FontSize="Large" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
+                <Label x:Name="nickNameLabel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding NickName, StringFormat='닉네임: {0}'}" FontSize="Medium" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
+                <Label x:Name="regionLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="우리 동네: " FontSize="Medium" VerticalOptions="Center" Margin="10, 0, 0, 0"/>
+                <Button Grid.Row="3" Grid.Column="2" Text="자세히보기" VerticalOptions="End" WidthRequest="50" Padding="0"/>
+                <Image Grid.RowSpan="4" Grid.Column="0"
+                         Source="profile.png" />
+            </Grid>
+            <Grid>
+                <Label HorizontalOptions="Start" Text="포인트 현황" FontSize="Large" VerticalOptions="Center" />
+                <Label HorizontalOptions="End" Text="{Binding Egg}" FontSize="Medium" VerticalOptions="Center" />
+            </Grid>
+            <Label Margin="0, 20, 0, 0" Text="포인트 구매" FontSize="Large" HorizontalOptions="Start"/>
+            <Label Margin="0, 20, 0, 0" Text="나의 도움 내역" FontSize="Large" HorizontalOptions="Start"/>
+            <Label Margin="0, 20, 0, 0" Text="내가 쓴 리뷰" FontSize="Large" HorizontalOptions="Start"/>
+            <Label Margin="0, 20, 0, 0" Text="내가 받은 리뷰" FontSize="Large" HorizontalOptions="Start"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    

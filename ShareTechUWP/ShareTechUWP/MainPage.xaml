@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="ShareTechUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShareTechUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Page.Resources>
+        <CollectionViewSource x:Name="cvsProjects" IsSourceGrouped="True" ItemsPath="Activities"/>
+    </Page.Resources>
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,40,0,0" Height="158" VerticalAlignment="Top">
+        <Run Text="Co" FontSize="55"/>
+        <Run Text="&#xE945;" FontFamily="Segoe MDL2 Assets" FontSize="37"/>
+        <Run Text="net" FontSize="55"/>
+        <Run Text="꼬넷" FontSize="35"/>
+        </TextBlock>
+
+        <Grid Margin="30,190,30,50">
+            <GridView x:Name="CategoryGrid" ItemsSource="{x:Bind ViewModel.Recordings}" SelectionChanged="GridView_SelectionChanged">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:Name="ImageOverlayDataTemplate" x:DataType="local:Recording">
+                        <Grid Height="200" Width="320">
+                            <Image Source="{x:Bind ImageSource}" Stretch="UniformToFill"/>
+                            <StackPanel Orientation="Vertical" Height="60" VerticalAlignment="Bottom" Background="{ThemeResource SystemBaseLowColor}" Padding="12">
+                                <TextBlock Text="{x:Bind CategoryName}"/>
+                                <!--TextBlock Text="{x:Bind ArtistName}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/-->
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Conet.Views.InfoEditPage"
+             xmlns:local="clr-namespace:Conet.ViewModels"
+             Title="회원정보 수정">
+    <ContentPage.BindingContext>
+        <local:UserInfoVM />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <RelativeLayout Margin="20">
+            <StackLayout
+                RelativeLayout.XConstraint="0"
+                RelativeLayout.YConstraint="0"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+                <Image Source="profile.png" HeightRequest="150"></Image>
+                <!--https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/images?tabs=windows-->
+                <Label Text="Conet" FontSize="Caption" HorizontalOptions="Center"/>
+                <Label Text="닉네임" Margin="0,10,0,0"/>
+                <Entry Text="{Binding NickName, Mode=TwoWay}" Placeholder="10자 이내"/>
+                <Label Text="새 비밀번호" Margin="0,10,0,0"/>
+                <Entry Text="{Binding Password, Mode=TwoWay}" Placeholder="비밀번호 변경 시에만 입력"/>
+                <Label Text="지역" Margin="0,10,0,0"/>
+                <Entry Text="{Binding Region, Mode=TwoWay}" />
+            </StackLayout>
+            <Button Text="저장하기" HorizontalOptions="FillAndExpand"
+                    RelativeLayout.XConstraint="0"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Constant=-60}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                    Command="{Binding SaveCommand}"/>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

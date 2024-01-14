@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Conet.Views.MapPage"
+             xmlns:vm="clr-namespace:Conet.ViewModels"
+             Title="지도"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
+    <!--ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#aeade3</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources-->
+
+    <maps:Map>
+        <x:Arguments>
+            <maps:MapSpan>
+                <x:Arguments>
+                    <maps:Position>
+                        <x:Arguments>
+                            <x:Double>37.6840332092</x:Double>
+                            <x:Double>126.8083559911</x:Double>
+                        </x:Arguments>
+                    </maps:Position>
+                    <x:Double>0.007</x:Double>
+                    <x:Double>0.007</x:Double>
+                </x:Arguments>
+            </maps:MapSpan>
+        </x:Arguments>
+    </maps:Map>
+</ContentPage>
